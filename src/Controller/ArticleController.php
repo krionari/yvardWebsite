@@ -36,6 +36,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $article->setUser($this->getUser());
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -66,6 +67,7 @@ class ArticleController extends AbstractController
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -75,7 +77,6 @@ class ArticleController extends AbstractController
         return $this->render('article/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
-
         ]);
     }
 
