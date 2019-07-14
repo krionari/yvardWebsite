@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+
+    <!-- Navbar brand -->
+
+    <img class="logo" alt="Brand" src="{{ asset('build/images/logoYvard.png') }}">
+    <a class="navbar-brand" href="#">YVARD</a>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('home') }}">Acceuil
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Notre Histoire</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class=" nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Média
+                </a>
+                <div class="dropdown-menu dropdown-services" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item hvr-sweep-to-top" href="#"> Photos</a>
+                    <a class="dropdown-item hvr-sweep-to-top" href="#"> Vidéos</a>
+                    <a class="dropdown-item hvr-sweep-to-top" href="#"> Musique</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Actualités</a>
+            </li>
+            <li class="nav-item vertical-line">
+                <a class="nav-link" href="#">Releases</a>
+            </li>
+            <li class="nav-item vertical-line">
+                <a class="nav-link" href="#">Concerts</a>
+            </li>
+            <li class="nav-item vertical-line">
+                <a class="nav-link" href="{{ path('article_index') }}">Livre d'Or</a>
+            </li>
+            <li class="nav-item vertical-line">
+                <a class="nav-link" href="#">Contacts</a>
+            </li>
+            {% if app.user %}
+                <li class="nav-item vertical-line">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                </li>
+            {% else %}
+                <li class="nav-item vertical-line">
+                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+            {% endif %}
+        </ul>
+        <!-- Links -->
+    </div>
+    <!-- Collapsible content -->
+</nav>
+<!--/.Navbar-->
