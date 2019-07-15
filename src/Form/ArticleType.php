@@ -17,12 +17,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('concert', EntityType::class, [
-                'class' => Concert::class,
-                'label' => 'date',
-                'choice_label' =>'getjourformat',
-
-            ])
+            ->add('concert', null, ['choice_label' => 'formatDate'])
         ;
     }
 

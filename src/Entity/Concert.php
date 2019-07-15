@@ -60,9 +60,9 @@ class Concert
         return $this;
     }
 
-    public function getJourFormat($format = 'd/m/Y')
+    public function formatDate()
     {
-        return $this->date->format($format);
+        return $this->date->format('d/m/Y');
     }
 
     public function getCity(): ?string
