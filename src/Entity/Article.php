@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+        $this->picture = new ArrayCollection();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -36,6 +43,17 @@ class Article
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Media", mappedBy="article")
+     */
+    private $picture;
+
 
     public function getId(): ?int
     {
@@ -89,4 +107,48 @@ class Article
 
         return $this;
     }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Media[]
+     */
+    public function getPicture(): Collection
+    {
+        return $this->picture;
+    }
+
+    public function addPicture(Media $picture): self
+    {
+        if (!$this->picture->contains($picture)) {
+            $this->picture[] = $picture;
+            $picture->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Media $picture): self
+    {
+        if ($this->picture->contains($picture)) {
+            $this->picture->removeElement($picture);
+            // set the owning side to null (unless already changed)
+            if ($picture->getArticle() === $this) {
+                $picture->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

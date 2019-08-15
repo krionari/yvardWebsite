@@ -38,9 +38,21 @@ class Concert
      */
     private $articles;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adress;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Media", mappedBy="concert")
+     */
+    private $picture;
+
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->picture = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -119,4 +131,48 @@ class Concert
 
         return $this;
     }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Media[]
+     */
+    public function getPicture(): Collection
+    {
+        return $this->picture;
+    }
+
+    public function addPicture(Media $picture): self
+    {
+        if (!$this->picture->contains($picture)) {
+            $this->picture[] = $picture;
+            $picture->setConcert($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Media $picture): self
+    {
+        if ($this->picture->contains($picture)) {
+            $this->picture->removeElement($picture);
+            // set the owning side to null (unless already changed)
+            if ($picture->getConcert() === $this) {
+                $picture->setConcert(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

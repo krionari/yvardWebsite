@@ -60,6 +60,11 @@ class User implements UserInterface
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $skill;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -238,6 +243,18 @@ class User implements UserInterface
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSkill(): ?string
+    {
+        return $this->skill;
+    }
+
+    public function setSkill(string $skill): self
+    {
+        $this->skill = $skill;
 
         return $this;
     }

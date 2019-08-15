@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Media;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use App\Repository\MediaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +33,7 @@ class ArticleController extends AbstractController
     public function new(Request $request): Response
     {
         $article = new Article();
+        $pictureArticle = new Media();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -38,6 +41,14 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $article->setUser($this->getUser());
             $entityManager->persist($article);
+            $entityManager->flush();
+
+            $pictureArticle->setName('picture_article_'. $article->getId());
+            $pictureArticle->setType('image');
+            $pictureArticle->setUrl('templateArticle.png');
+            $pictureArticle->setArticle($article);
+
+            $entityManager->persist($pictureArticle);
             $entityManager->flush();
 
             return $this->redirectToRoute('article_index');
@@ -62,7 +73,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Article $article): Response
+    public function edit(Request $request, Article $article, MediaRepository $mediaRepository): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
@@ -75,6 +86,7 @@ class ArticleController extends AbstractController
 
         return $this->render('article/edit.html.twig', [
             'article' => $article,
+            'media' => $mediaRepository->findOneBy(['article' => $article->getId()]),
             'form' => $form->createView(),
         ]);
     }
@@ -92,4 +104,5 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('article_index');
     }
+
 }

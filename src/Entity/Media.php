@@ -33,9 +33,20 @@ class Media
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="media")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="picture")
+     */
+    private $article;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Concert", inversedBy="picture")
+     */
+    private $concert;
+
 
     public function getId(): ?int
     {
@@ -89,4 +100,29 @@ class Media
 
         return $this;
     }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    public function getConcert(): ?Concert
+    {
+        return $this->concert;
+    }
+
+    public function setConcert(?Concert $concert): self
+    {
+        $this->concert = $concert;
+
+        return $this;
+    }
+
 }

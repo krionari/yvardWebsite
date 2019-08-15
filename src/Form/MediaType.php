@@ -2,31 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Article;
-use App\Entity\Concert;
 use App\Entity\Media;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class MediaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $builder
-            ->add('title')
-            ->add('content')
-            ->add('concert', null, ['choice_label' => 'formatDate'])
+            ->add('name')
+            ->add('type')
+            ->add('url')
+            ->add('user')
+            ->add('article')
+            ->add('concert')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class,
+            'data_class' => Media::class,
         ]);
     }
 }
