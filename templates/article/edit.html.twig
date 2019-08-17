@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Edit Article</h1>
-    <a href ="{{ path('article_image', {'id': media.id }) }}">Ajouter une image</a>
+    <a href ="{{ path('article_image', {'id': media.id }) }}">Éditer l'image</a>
 
     {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
 

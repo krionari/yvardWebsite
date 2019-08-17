@@ -15,9 +15,8 @@ class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $builder
-            ->add('title')
+            ->add('title', null, ['attr' => ['maxlength' => 50]])
             ->add('content')
             ->add('concert', null, ['choice_label' => 'formatDate'])
         ;

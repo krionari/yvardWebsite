@@ -1,0 +1,122 @@
+.cards-article{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card-index{
+  width: 35%;
+  margin-bottom: 80px;
+  border: #A77D43 solid 1px;
+  border-radius: 0px;
+}
+
+.flange-left{
+  width: 8px;
+  height: 150px;
+  background-color: #A77D43;
+  margin-bottom: -150px;
+  margin-left: -8px;
+}
+
+.flange-top{
+  width: 180px;
+  height: 35px;
+  background-color: #A77D43;
+  margin-top:-35px;
+  margin-left:-8px;
+}
+
+.flange-title{
+  text-align: center;
+  font-size: 1.3em;
+  margin-top: 2px;
+  color: white;
+  font-family: 'Kalam', cursive;
+}
+
+.card-body-bottom {
+  display: flex;
+  justify-content:space-between;
+  margin-top: 30px;
+  margin-bottom: -35px;
+}
+.bottom-date{
+  font-family: 'Kalam', cursive;
+  font-size: 0.7em;
+  color: #A77D43;
+  margin-left: -18px;
+  margin-top: 6px;
+}
+
+.card-index .card-body a:link{
+  color: #A77D43;
+  font-family: 'Kalam', cursive;
+  font-size: 1.1em;
+}
+
+.card-index .card-body a:visited{
+  color: #A77D43;
+}
+
+.card-index .card-body a:hover{
+  text-decoration: underline;
+}
+
+.card-title{
+  font-family: 'Kalam', cursive;
+  font-size: 1.45em;
+  padding-top: 20px;
+}
+
+.card-img-top{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 200px;
+}
+
+.card-text{
+  font-family: 'Kalam', cursive;
+  padding: 0 11%;
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 1150px) {
+  .card-img-top {
+    height: 140px;
+  }
+  .card-title {
+    height: 60px;
+    font-size: 1.4em;
+  }
+  .card-text {
+    padding: 0 8%;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card-index {
+    width: 80%;
+  }
+  .card-img-top {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card-img-top {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card-img-top {
+    height: 110px; }
+  .card-text {
+    padding: 0 2%;
+    font-size: 0.8em;
+  }
+}

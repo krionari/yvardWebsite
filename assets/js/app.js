@@ -11,6 +11,7 @@ require('../css/home.scss');
 require('../css/livre_or.scss');
 require('../css/navbar.scss');
 require('../css/footer.scss');
+require('../css/article.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 
