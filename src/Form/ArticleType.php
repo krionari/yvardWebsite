@@ -3,11 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
-use App\Entity\Concert;
-use App\Entity\Media;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,6 +15,7 @@ class ArticleType extends AbstractType
             ->add('title', null, ['attr' => ['maxlength' => 50]])
             ->add('content')
             ->add('concert', null, ['choice_label' => 'formatDate'])
+            ->add('recording', null, ['choice_label' => 'name'])
         ;
     }
 

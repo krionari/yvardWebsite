@@ -2,12 +2,13 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
+use App\Entity\Recording;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
-class UserFixtures extends Fixture
+class RecordingFixtures extends Fixture
 {
     private $passwordEncoder;
 
@@ -18,13 +19,12 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $admin = new User();
-        $admin->setEmail('krionari@gmail.com');
-        $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setSkill('Chanteur');
-        $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'admin'));
-        $manager->persist($admin);
-        $this->addReference('user_admin', $admin);
+
+        $recording = new Recording();
+        $recording->setReleaseDate(\DateTime::createFromFormat('Y-m-d', "2020-02-14"));
+        $recording->setName('Le temps des excuses');
+
+        $manager->persist($recording);
 
         $manager->flush();
     }

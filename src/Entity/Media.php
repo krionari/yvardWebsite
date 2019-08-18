@@ -47,6 +47,11 @@ class Media
      */
     private $concert;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Recording", inversedBy="media")
+     */
+    private $recording;
+
 
     public function getId(): ?int
     {
@@ -121,6 +126,18 @@ class Media
     public function setConcert(?Concert $concert): self
     {
         $this->concert = $concert;
+
+        return $this;
+    }
+
+    public function getRecording(): ?Recording
+    {
+        return $this->recording;
+    }
+
+    public function setRecording(?Recording $recording): self
+    {
+        $this->recording = $recording;
 
         return $this;
     }

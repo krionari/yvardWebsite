@@ -48,6 +48,11 @@ class Concert
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="integer", length=6)
+     */
+    private $postal_code;
+
 
     public function __construct()
     {
@@ -171,6 +176,18 @@ class Concert
                 $picture->setConcert(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPostalCode(): ?int
+    {
+        return $this->postal_code;
+    }
+
+    public function setPostalCode(string $postal_code): self
+    {
+        $this->postal_code = $postal_code;
 
         return $this;
     }

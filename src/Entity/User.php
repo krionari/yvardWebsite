@@ -65,6 +65,11 @@ class User implements UserInterface
      */
     private $skill;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Recording", inversedBy="users")
+     */
+    private $recording;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -255,6 +260,18 @@ class User implements UserInterface
     public function setSkill(string $skill): self
     {
         $this->skill = $skill;
+
+        return $this;
+    }
+
+    public function getRecording(): ?Recording
+    {
+        return $this->recording;
+    }
+
+    public function setRecording(?Recording $recording): self
+    {
+        $this->recording = $recording;
 
         return $this;
     }

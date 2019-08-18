@@ -54,6 +54,11 @@ class Article
      */
     private $picture;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Recording", inversedBy="articles")
+     */
+    private $recording;
+
 
     public function getId(): ?int
     {
@@ -147,6 +152,18 @@ class Article
                 $picture->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRecording(): ?Recording
+    {
+        return $this->recording;
+    }
+
+    public function setRecording(?Recording $recording): self
+    {
+        $this->recording = $recording;
 
         return $this;
     }
