@@ -25,6 +25,7 @@ class RecordingFixtures extends Fixture
         $recording->setName('Le temps des excuses');
 
         $manager->persist($recording);
+        $this->addReference('recording_1', $recording);
 
         $manager->flush();
     }
