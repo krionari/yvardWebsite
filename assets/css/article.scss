@@ -63,13 +63,15 @@
   text-decoration: underline;
 }
 
-.card-title{
+/* Cards Concert */
+
+.card-title-concert{
   font-family: 'Kalam', cursive;
   font-size: 1.45em;
   padding-top: 20px;
 }
 
-.card-img-top{
+.card-img-concert{
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -77,21 +79,21 @@
   height: 200px;
 }
 
-.card-text{
+.card-text-concert{
   font-family: 'Kalam', cursive;
   padding: 0 11%;
   font-size: 0.9em;
 }
 
 @media screen and (max-width: 1150px) {
-  .card-img-top {
+  .card-img-concert {
     height: 140px;
   }
-  .card-title {
+  .card-title-concert {
     height: 60px;
     font-size: 1.4em;
   }
-  .card-text {
+  .card-text-concert {
     padding: 0 8%;
     font-size: 0.8em;
   }
@@ -101,22 +103,43 @@
   .card-index {
     width: 80%;
   }
-  .card-img-top {
+  .card-img-concert {
     height: 200px;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .card-img-top {
+  .card-img-concert {
     height: 150px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .card-img-top {
+  .card-img-concert {
     height: 110px; }
-  .card-text {
+  .card-text-concert {
     padding: 0 2%;
     font-size: 0.8em;
   }
+}
+
+/* Cards Recording */
+
+.card-title-recording{
+  font-family: 'Kalam', cursive;
+  font-size: 1.45em;
+}
+
+.img-recording{
+  float: right;
+}
+.card-img-recording{
+  border-radius: 50%;
+  width: 210px;
+  height: 210px;
+}
+
+.card-text-recording{
+  font-family: 'Kalam', cursive;
+  font-size: 0.9em;
 }
