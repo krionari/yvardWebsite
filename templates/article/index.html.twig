@@ -3,66 +3,70 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Á vos agenda, le Rock Français n'est pas mort !</h1>
+    <h1 class="title-article">Á vos agenda, le Rock Français n'est pas mort !</h1>
 
-    <div class="cards-article">
-            {% for article in articles %}
+    <div class="allCards">
+        {% for article in articles %}
 
-                {% if article.concert is not null %}
+            {% if article.concert is not null %}
 
-                    <div class="card card-index">
-                        <div class="flange-left">
-                        </div>
-                        <div class="flange-top">
-                            <p class="flange-title">Concert</p>
-                        </div>
-                        <h5 class="card-title card-title-concert text-center">{{ article.title }}</h5>
-                        {% for picture in article.picture %}
-                            <img class="card-img-top card-img-concert" src="{{asset('uploads/images/' ~ picture.url) }}" alt="Card image cap">
-                        {% endfor %}
-                        <div class="card-body">
-                            <p class="card-text card-text-concert text-center">{{ article.content | striptags | slice(0, 100) }} [...]</p>
-                            <div class="card-body-bottom">
-                                <p class="bottom-date">{{ article.date|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}</p>
-                                <a href="{{ path('article_show', {'id': article.id}) }}">En savoir plus</a>
-                            </div>
-                        </div>
+                <div class="cards">
+                    <div class="flange-top">
+                        <p class="flange-title">Concert</p>
+                    </div>
+                    <div class="flange-left">
+
                     </div>
 
-                    {% elseif article.recording is not null %}
+                    <div class="content">
+                        <h2 class="title-card-concert">{{ article.title }}</h2>
 
-                        <div class="card card-index">
-                            <div class="flange-left">
-                            </div>
-                            <div class="flange-top">
-                                <p class="flange-title">Album</p>
-                            </div>
-                            <div class="content">
-                            {% for picture in article.picture %}
-                                <p class="img-recording">
-                                <img class="card-img-top card-img-recording" src="{{asset('uploads/images/' ~ picture.url) }}" alt="Card image cap">
-                                </p>
-                            {% endfor %}
-                            <h5 class="card-title card-title-recording text-center">{{ article.title }}</h5>
-                            <p class="card-text card-text-recording text-center">{{ article.content | striptags | slice(0, 100) }} [...]</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-body-bottom">
-                                    <p class="bottom-date">{{ article.date|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}</p>
-                                    <a href="{{ path('article_show', {'id': article.id}) }}">En savoir plus</a>
-                                </div>
-                            </div>
+                        {% for picture in article.picture %}
+                            <img class="img-card-concert" src="{{asset('uploads/images/' ~ picture.url) }}" alt="Card image cap">
+                        {% endfor %}
+
+                        <p class="text-card-concert">{{ article.content | striptags | slice(0, 100) }} [...]</p>
+
+                        <div class="footer-card">
+                            <p class="footer-card-date">{{ article.date|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}</p>
+                            <a class="footer-link" href="{{ path('article_show', {'id': article.id}) }}">En savoir plus</a>
                         </div>
 
-                {% endif %}
+                    </div>
+                </div>
 
-            {% else %}
-                <tr>
-                    <td colspan="4">no records found</td>
-                </tr>
-            {% endfor %}
+            {% elseif article.recording is not null %}
+
+                <div class="cards">
+                    <div class="flange-top">
+                        <p class="flange-title">Album</p>
+                    </div>
+                    <div class="flange-left">
+
+                    </div>
+
+                    <div class="content">
+                        {% for picture in article.picture %}
+                            <img class="img-card-recording" src="{{asset('uploads/images/' ~ picture.url) }}" alt="Card image cap">
+                        {% endfor %}
+                        <h2 class="title-card-recording">{{ article.title }}</h2>
+
+
+
+                        <p class="text-card-recording">{{ article.content | striptags | slice(0, 180) }} [...]</p>
+
+                        <div class="footer-card">
+                            <p class="footer-card-date">{{ article.date|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}</p>
+                            <a class="footer-link" href="{{ path('article_show', {'id': article.id}) }}">En savoir plus</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
     </div>
-
 
     <a href="{{ path('article_new') }}">Create new</a>
 {% endblock %}

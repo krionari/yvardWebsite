@@ -1,145 +1,238 @@
-.cards-article{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.title-article{
+  margin-bottom: -50px;
 }
 
-.card-index{
-  width: 35%;
-  margin-bottom: 80px;
-  border: #A77D43 solid 1px;
-  border-radius: 0px;
+.allCards{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.cards{
+  margin-top: 100px;
+  width: 40%;
 }
 
 .flange-left{
   width: 8px;
   height: 150px;
   background-color: #A77D43;
-  margin-bottom: -150px;
-  margin-left: -8px;
 }
 
 .flange-top{
   width: 180px;
   height: 35px;
   background-color: #A77D43;
-  margin-top:-35px;
-  margin-left:-8px;
 }
 
 .flange-title{
   text-align: center;
+  padding-top: 4px;
   font-size: 1.3em;
-  margin-top: 2px;
   color: white;
   font-family: 'Kalam', cursive;
 }
 
-.card-body-bottom {
-  display: flex;
-  justify-content:space-between;
-  margin-top: 30px;
-  margin-bottom: -35px;
+.content{
+  width: 100%;
+  height: 400px;
+  border: solid 1px #A77D43;
+  margin-left: 8px;
+  margin-top: -150px;
 }
-.bottom-date{
+
+// Cards CONCERT
+
+.title-card-concert{
+  height: 20%;
+  text-align: center;
+  font-size: 1.8em;
+  padding-top: 10px;
+  font-family: 'Kalam', cursive;
+}
+
+.img-card-concert{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
+}
+
+.text-card-concert{
+  padding-top: 15px;
+  padding-right: 15%;
+  padding-left: 15%;
+  text-align: center;
+  height: 18%;
+  font-family: 'Kalam', cursive;
+  font-size: 1em;
+}
+
+.footer-card{
+  height: 5%;
+  padding-right: 3%;
+  padding-left: 3%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-card-date{
+  padding-top: 10px;
   font-family: 'Kalam', cursive;
   font-size: 0.7em;
   color: #A77D43;
-  margin-left: -18px;
-  margin-top: 6px;
 }
 
-.card-index .card-body a:link{
+.footer-link{
   color: #A77D43;
   font-family: 'Kalam', cursive;
   font-size: 1.1em;
 }
 
-.card-index .card-body a:visited{
+.footer-card a:visited{
   color: #A77D43;
 }
 
-.card-index .card-body a:hover{
+.footer-card :hover{
   text-decoration: underline;
+  color: #A77D43;
 }
 
-/* Cards Concert */
+@media screen and (max-width: 1400px) {
 
-.card-title-concert{
-  font-family: 'Kalam', cursive;
-  font-size: 1.45em;
-  padding-top: 20px;
-}
-
-.card-img-concert{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  height: 200px;
-}
-
-.card-text-concert{
-  font-family: 'Kalam', cursive;
-  padding: 0 11%;
-  font-size: 0.9em;
-}
-
-@media screen and (max-width: 1150px) {
-  .card-img-concert {
-    height: 140px;
+  .title-card-concert{
+    height: 20%;
   }
-  .card-title-concert {
-    height: 60px;
+
+  .img-card-concert{
+    width: 80%;
+    height: 50%;
+  }
+
+  .text-card-concert{
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  .content{
+    height: 330px;
+  }
+
+  .title-card-concert{
     font-size: 1.4em;
+    height: 20%;
   }
-  .card-text-concert {
-    padding: 0 8%;
-    font-size: 0.8em;
+
+  .img-card-concert{
+    width: 80%;
+    height: 45%;
+  }
+
+  .text-card-concert{
+    height: 20%;
+    padding-right: 10%;
+    padding-left: 10%;
+    font-size: 0.9em;
   }
 }
 
-@media screen and (max-width: 800px) {
-  .card-index {
+@media screen and (max-width: 800px){
+  .cards{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  .content{
+    height: 300px;
+  }
+
+  .cards{
     width: 80%;
   }
-  .card-img-concert {
-    height: 200px;
-  }
-}
 
-@media screen and (max-width: 550px) {
-  .card-img-concert {
-    height: 150px;
+  .title-card-concert{
+    font-size: 1.2em;
   }
-}
 
-@media screen and (max-width: 400px) {
-  .card-img-concert {
-    height: 110px; }
-  .card-text-concert {
-    padding: 0 2%;
+  .img-card-concert{
+    width: 75%;
+    height: 40%;
+  }
+
+  .text-card-concert{
     font-size: 0.8em;
+    height: 25%;
   }
+
+  .footer-card-date{
+    padding-top: 7px;
+  }
+
 }
 
-/* Cards Recording */
+// Cards RECORDING
 
-.card-title-recording{
+.title-card-recording{
+  height: 40%;
+  padding-top: 15%;
+  text-align: center;
+  font-size: 1.8em;
   font-family: 'Kalam', cursive;
-  font-size: 1.45em;
 }
 
-.img-recording{
+.img-card-recording{
   float: right;
-}
-.card-img-recording{
   border-radius: 50%;
-  width: 210px;
-  height: 210px;
+  width: 40%;
+  margin-right: 2%;
+  margin-top: 2%;
 }
 
-.card-text-recording{
+.text-card-recording{
+  padding-top: 10%;
+  padding-right: 30%;
+  padding-left: 5%;
+  height: 48%;
   font-family: 'Kalam', cursive;
-  font-size: 0.9em;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .title-card-recording{
+    font-size: 1.4em;
+  }
+
+  .img-card-recording{
+    width: 45%;
+  }
+
+  .text-card-recording{
+    font-size: 0.9em;
+    height: 45%;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+
+  .title-card-recording{
+    font-size: 1.2em;
+  }
+
+  .img-card-recording{
+    width: 40%;
+    height: 40%;
+  }
+
+  .text-card-recording{
+    padding-left: 10%;
+    padding-right: 10%;
+
+  }
 }
