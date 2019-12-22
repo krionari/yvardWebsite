@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 nav{
   position: sticky;
   margin-bottom: 100px;
@@ -13,5 +15,5 @@ nav{
 
 .navbar-dark .navbar-nav .nav-link{
   color: #A77D43;
-  font-family: 'Kalam', cursive;
+  font-family: $fontApp;
 }

@@ -11,11 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
-    public function __construct()
-    {
-        $this->date = new \DateTime('now');
-        $this->picture = new ArrayCollection();
-    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -59,6 +54,11 @@ class Article
      */
     private $recording;
 
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+        $this->picture = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {

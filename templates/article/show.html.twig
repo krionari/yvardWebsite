@@ -6,17 +6,32 @@
 
     <h1>{{ article.title }}</h1>
 
-    <div class="content-show-article">
+    {% if article.concert is not null %}
 
-        <div class="content-show-image">
-            {% for picture in article.picture %}
-            <img alt="image article n° {{ article.id }}" src="{{asset('uploads/images/' ~ picture.url) }}"> </div>
-        {% endfor %}
-        <div class="content-show-text">
-            <p class="content-show-text">{{ article.content }}</p>
+        <div class="content-show-article-concert">
+
+            <div class="content-show-blockImage-concert">
+                {% for picture in article.picture %}
+                <img class="content-show-image-concert" src="{{asset('uploads/images/' ~ picture.url) }}" alt="image article n° {{ article.id }}" > </div>
+            {% endfor %}
+
+            <p class="content-show-text-concert">{{ article.content }}</p>
+
         </div>
 
-    </div>
+    {% elseif article.recording is not null %}
+
+        <div class="content-show-article-recording">
+
+            {% for picture in article.picture %}
+                <img class="content-show-image-recording" src="{{asset('uploads/images/' ~ picture.url) }}" alt="image article n° {{ article.id }}" >
+            {% endfor %}
+
+            <p class="content-show-text-recording">{{ article.content }}</p>
+
+        </div>
+
+    {% endif %}
 
     <a href="{{ path('article_index') }}">back to list</a>
 

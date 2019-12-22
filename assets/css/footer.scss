@@ -1,6 +1,8 @@
+@import "variables.scss";
+
 .footer-copyright{
   color: white;
-  font-family: 'Kalam', cursive;
+  font-family: $fontApp;
 }
 
 .contact-footer{
@@ -11,7 +13,7 @@
 
 .page-footer a {
   text-decoration: none;
-  font-family: 'Kalam', cursive;
+  font-family: $fontApp;
 }
 
 .page-footer a:link {
