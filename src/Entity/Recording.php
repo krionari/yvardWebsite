@@ -34,11 +34,6 @@ class Recording
     private $songs;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="recording")
-     */
-    private $users;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Media", mappedBy="recording")
      */
     private $media;
@@ -51,7 +46,6 @@ class Recording
     public function __construct()
     {
         $this->songs = new ArrayCollection();
-        $this->users = new ArrayCollection();
         $this->media = new ArrayCollection();
         $this->articles = new ArrayCollection();
     }
@@ -110,37 +104,6 @@ class Recording
             // set the owning side to null (unless already changed)
             if ($song->getRecording() === $this) {
                 $song->setRecording(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->setRecording($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            // set the owning side to null (unless already changed)
-            if ($user->getRecording() === $this) {
-                $user->setRecording(null);
             }
         }
 

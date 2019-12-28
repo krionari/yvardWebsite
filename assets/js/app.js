@@ -13,6 +13,7 @@ require('../css/navbar.scss');
 require('../css/footer.scss');
 require('../css/articleIndex.scss');
 require('../css/articleShow.scss');
+require('../css/band.scss');
 
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.

@@ -2,4 +2,55 @@
 
 {% block body %}
 
+    <h1>Le groupe</h1>
+
+    <img class="history-image" src="{{ asset('build/images/groupe_YVARD.png') }}" alt="photo_groupe_Yvard">
+
+
+    <p class="band_content">
+        D’origine nantaise, David M. Thurisaz, est bercé au diapason de la musique francophone dès son plus jeune âge. Passionné par la culture musicale bretonne, il puise son énergie au son des groupes de rock celtes et du charisme de The Pogues, EV ou Matmatah.<br>
+
+        Né en même temps que l’émergence du punk rock, il s’enivre des mélodies des Bérus, de Mano Solo et d’un rock plus alternatif Mano Negra ou Les garçons bouchers endiablent ses nuits jusqu’au petit matin.<br><br>
+
+        Auteur, compositeur et interprète, Thurisaz nous transporte dans un univers profondément réaliste. Il revendique son appartenance à son pays, la France. C’est un fervent adepte de la chanson porteuse de sens dont les mots reflètent le vécu. Il s’abreuve des écritures de grands paroliers tels que Bashung, Miossec ou Biolay. Ses influences cantatiennes et saeziennes le poussent à écrire encore et toujours ce qu’il appelle « la vie tout simplement ».<br><br>
+
+        Il ne conçoit pas la musique comme un apprentissage scolaire ; il préfère la vivre. C’est avec la guitare acoustique prêtée par son regretté oncle Alain qu’il s’exerce et sort ses premiers sons. Ses lignes d’écriture naissent alors au rythme de ses notes. Au début des années 90, il goûte aux joies de la composition musicale au sein du groupe gospel Two Whites. Le quatuor se produit à plusieurs reprises jusqu’à sa dissolution en 1995.<br><br>
+
+        David M. Thurisaz commence alors à jouer et à chanter en solo. Sa guitare ne le lâchant jamais, il chante et joue sa vie. Il donne de la voix devant ceux qui passent et qui s’arrêtent pour l’écouter. Il s’abreuve sans cesse des histoires existentielles qui font de lui un écorché vif.
+
+        Chanteur des jours à bannir, poète aux doigts abîmés par tant d’horribles cauchemars venus noircir son papier, il retrouve sur les chemins de la vie Kris Yera, son ami de toujours.<br><br>
+
+        En 2016, ils décident de former le groupe YVARD. Un premier EP de 5 titres, «Vue d’ici», voit le jour.
+
+        En 2017, David M. Thurisaz rencontre via les réseaux sociaux, Yan Ingwaz, auteur, compositeur et interprète. L’accroche se fait dès la première entrevue. Ils s’affairent à retravailler l’EP déjà réalisé afin de le rendre plus rock. Ingwaz, guitariste hors pair et choriste à la voix cristalline, s’imprègne des titres et embellit magnifiquement les compositions.<br><br>
+
+        Soucieux de joindre à son projet des personnes fidèles aux valeurs sûres, Thurisaz se tourne vers Jul Fheu, guitariste autodidacte au jeu troublant de sincérité et Jérémy Gebo, bassiste de formation, qui intègre rapidement les rangs. Romain Als. Raido, batteur increvable aux tonalités rock dures, les rejoint pour faire majestueusement vibrer ses peaux. Enfin, Thurisaz invite Erick dit « Uruz », ami de longue haleine, à accompagner son chant de sa voix rocailleuse et à donner de la profondeur aux compositions grâce à son jeu poignant au synthé.
+    </p>
+
+    <h1>Les membres du groupes</h1>
+
+    <div class="band-history-blockCards">
+        {% for member in members %}
+            <div class="band-history-card" style="background-image: url('{{ asset('build/images/david.png') }}'); background-size: 230px 330px;">
+                <svg class="band-history-cards-svg" viewBox="0 0 800 500">
+                    <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+                    <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="#A77D43" stroke-width="3" fill="transparent"/>
+                </svg>
+
+                <div class="band-history-cards-content">
+                    <p class="band-history-cards-name">{{ member.firstname }} {{ member.lastname }}</p>
+                    <p class="band-history-cards-skills">
+                        {% for skill in member.primarySkills %}
+                            {% if skill == member.primarySkills|last %}
+                                {{ skill | capitalize }}
+                            {% else %}
+                                {{ skill | capitalize }},
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

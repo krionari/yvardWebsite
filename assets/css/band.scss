@@ -1,0 +1,74 @@
+@import "variables.scss";
+
+//Top
+.history-image{
+  display: block;
+  margin: -50px auto 100px auto;
+  width: 75%;
+  border-radius: 20px;
+}
+
+.band_content{
+  font-family: $fontApp;
+  text-align: justify;
+  margin: 0 auto 100px auto;
+  width: 70%;
+}
+
+@media screen and (max-width: 650px){
+  .history-image{
+    width: 95%;
+    margin-bottom: 40px;
+  }
+  .band_content{
+    width: 90%;
+  }
+}
+
+//Cards
+
+.band-history-blockCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0 8%;
+}
+
+.band-history-card{
+  margin: 0 2% 5% 2%;
+  width: 230px;
+  height: 330px;
+  border: solid 2px $colorApp;
+  border-radius: 10px;
+
+}
+
+.band-history-cards-svg{
+  margin-top: 70px;
+}
+
+.band-history-cards-content{
+  margin-top: -5px;
+  width: 100%;
+  min-height: 135px;
+  max-height: 135px;
+  background-color: #333;
+  border-radius: 0 0 10px 10px;
+}
+
+.band-history-cards-name{
+  margin-top: -20px;
+  text-align: center;
+  font-size: 1.6em;
+  font-family: $fontApp;
+  font-weight: bold;
+  color: $colorApp;
+}
+
+.band-history-cards-skills{
+  margin-top: -10px;
+  text-align: center;
+  font-size: 1.3em;
+  font-family: $fontApp;
+  color: $colorApp;
+}

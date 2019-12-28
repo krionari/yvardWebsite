@@ -27,7 +27,7 @@
                 <img class="content-show-image-recording" src="{{asset('uploads/images/' ~ picture.url) }}" alt="image article n° {{ article.id }}" >
             {% endfor %}
 
-            <p class="content-show-text-recording">{{ article.content }}</p>
+            <p class="content-show-text-recording">{{ article.content|nl2br }}</p>
 
         </div>
 

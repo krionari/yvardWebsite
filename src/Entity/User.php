@@ -46,6 +46,11 @@ class User implements UserInterface
     private $lastname;
 
     /**
+     * @ORM\Column(type="string", nullable=false)
+     */
+    private $type;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Media", mappedBy="user")
      */
     private $media;
@@ -61,19 +66,20 @@ class User implements UserInterface
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="array", nullable=true)
      */
-    private $skill;
+    private $primarySkills;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Recording", inversedBy="users")
+     * @ORM\Column(type="array", nullable=true)
      */
-    private $recording;
+    private $otherSkills;
 
     public function __construct()
     {
         $this->media = new ArrayCollection();
         $this->article = new ArrayCollection();
+        $this->otherSkills = [];
     }
 
     public function getId(): ?int
@@ -178,6 +184,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Media[]
      */
@@ -252,26 +270,26 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSkill(): ?string
+    public function setPrimarySkills(array $primarySkills): self
     {
-        return $this->skill;
-    }
-
-    public function setSkill(string $skill): self
-    {
-        $this->skill = $skill;
+        $this->primarySkills = $primarySkills;
 
         return $this;
     }
 
-    public function getRecording(): ?Recording
+    public function getPrimarySkills(): array
     {
-        return $this->recording;
+        return $this->primarySkills;
     }
 
-    public function setRecording(?Recording $recording): self
+    public function getOtherSkills(): array
     {
-        $this->recording = $recording;
+        return $this->otherSkills;
+    }
+
+    public function setOtherSkills(array $otherSkills): self
+    {
+        $this->otherSkills = $otherSkills;
 
         return $this;
     }

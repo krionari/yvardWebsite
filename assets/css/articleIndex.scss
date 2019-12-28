@@ -18,13 +18,13 @@
 .flange-left{
   width: 8px;
   height: 150px;
-  background-color: #A77D43;
+  background-color: $colorApp;
 }
 
 .flange-top{
   width: 180px;
   height: 35px;
-  background-color: #A77D43;
+  background-color: $colorApp;
 }
 
 .flange-title{
@@ -38,7 +38,7 @@
 .content{
   width: 100%;
   height: 400px;
-  border: solid 1px #A77D43;
+  border: solid 1px $colorApp;
   margin-left: 8px;
   margin-top: -150px;
 }
@@ -82,22 +82,22 @@
   padding-top: 10px;
   font-family: 'Kalam', cursive;
   font-size: 0.7em;
-  color: #A77D43;
+  color: $colorApp;
 }
 
 .footer-link{
-  color: #A77D43;
+  color: $colorApp;
   font-family: 'Kalam', cursive;
   font-size: 1.1em;
 }
 
 .footer-card a:visited{
-  color: #A77D43;
+  color: $colorApp;
 }
 
 .footer-card :hover{
   text-decoration: underline;
-  color: #A77D43;
+  color: $colorApp;
 }
 
 @media screen and (max-width: 1400px) {
@@ -235,6 +235,6 @@
   .text-card-recording{
     padding-left: 10%;
     padding-right: 10%;
-
   }
+
 }
