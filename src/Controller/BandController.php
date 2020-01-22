@@ -39,13 +39,14 @@ class BandController extends AbstractController
     }
 
     /**
-     * @Route("/membre/{firstname}", name="membre")
+     * @Route("/membre/{lastname}", name="band_member")
      */
     public function show(User $member)
     {
         $description = $member->getDescription();
         $description = str_replace('YVARD', '<span>YVARD</span>', $description);
         $member->setDescription($description);
+
         return $this->render('band/member.html.twig',[
             'member' => $member
         ]);

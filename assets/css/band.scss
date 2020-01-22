@@ -37,14 +37,17 @@
 .band-history-card{
   margin: 0 2% 5% 2%;
   width: 230px;
-  height: 330px;
+  height: 370px;
   border: solid 2px $colorApp;
   border-radius: 10px;
+}
 
+.band-history-blockCards a:hover{
+  text-decoration: none;
 }
 
 .band-history-cards-svg{
-  margin-top: 70px;
+  margin-top: 110px;
 }
 
 .band-history-cards-content{

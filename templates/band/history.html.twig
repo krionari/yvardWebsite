@@ -31,26 +31,31 @@
 
     <div class="band-history-blockCards">
         {% for member in members %}
-            <div class="band-history-card" style="background-image: url('{{ asset('build/images/david.png') }}'); background-size: 230px 330px;">
-                <svg class="band-history-cards-svg" viewBox="0 0 800 500">
-                    <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
-                    <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="#A77D43" stroke-width="3" fill="transparent"/>
-                </svg>
+        {% for media in member.media %}
+        {% if media.type == 'imageMember' %}
 
-                <div class="band-history-cards-content">
-                    <p class="band-history-cards-name">{{ member.firstname }} {{ member.lastname }}</p>
-                    <p class="band-history-cards-skills">
-                        {% for skill in member.primarySkills %}
-                            {% if skill == member.primarySkills|last %}
-                                {{ skill | capitalize }}
-                            {% else %}
-                                {{ skill | capitalize }},
-                            {% endif %}
-                        {% endfor %}
-                    </p>
+        <div class="band-history-card" style="background-image: url('{{ asset('build/images/' ~  media.url ) }}'); background-size: 230px 330px;">
+        {% endif %}
+        {% endfor %}
+            <svg class="band-history-cards-svg" viewBox="0 0 800 500">
+                <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+                <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="#A77D43" stroke-width="3" fill="transparent"/>
+            </svg>
 
-                </div>
+            <div class="band-history-cards-content">
+                <a href="{{ path('band_member', {'lastname' : member.lastname}) }}">
+                <p class="band-history-cards-name">{{ member.firstname }} {{ member.lastname }}</p></a>
+                <p class="band-history-cards-skills">
+                    {% for skill in member.primarySkills %}
+                        {% if skill == member.primarySkills|last %}
+                            {{ skill | capitalize }}
+                        {% else %}
+                            {{ skill | capitalize }},
+                        {% endif %}
+                    {% endfor %}
+                </p>
             </div>
+        </div>
         {% endfor %}
     </div>
 {% endblock %}

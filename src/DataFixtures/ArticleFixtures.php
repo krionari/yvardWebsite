@@ -38,7 +38,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article1->setUser($this->getReference('user_0'));
         $article1->setConcert($this->getReference('concert_PinGalant'));
 
-        $pictureArticle1->setName('picture_article_'. $article1->getId());
+        $pictureArticle1->setName('picture_article_1');
         $pictureArticle1->setType('image');
         $pictureArticle1->setUrl('fixture1.png');
         $pictureArticle1->setArticle($article1);
@@ -61,7 +61,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
         $article2->setUser($this->getReference('user_0'));
         $article2->setRecording($this->getReference('recording_1'));
 
-        $pictureArticle2->setName('picture_article_'. $article2->getId());
+        $pictureArticle2->setName('picture_article_2');
         $pictureArticle2->setType('image');
         $pictureArticle2->setUrl('fixture2.png');
         $pictureArticle2->setArticle($article2);
